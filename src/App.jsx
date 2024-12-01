@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import AddTask from "./components/AddTask";
-import SwapTheme from "./components/SwapTheme";
-import Tasks from "./components/Tasks";
+import AddTask from "./components/pages/AddTask";
+import SwapTheme from "./components/theme/SwapTheme";
+import Tasks from "./components/pages/Tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -46,6 +46,7 @@ function App() {
   return (
     <>
       <SwapTheme />
+      <h1 className="text-center text-3xl text-info mb-10">What gets written, gets done!</h1>
       <div className="flex flex-col justify-center items-center h-screen mt-0">
         <AddTask addTask={addTask} />
         <Tasks

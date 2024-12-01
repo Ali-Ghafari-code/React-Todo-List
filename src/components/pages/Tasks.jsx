@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import DeleteBtn from "./operation/DeleteBtn";
-import DoneBtn from "./operation/DoneBtn";
-import EditBtn from "./operation/EditBtn";
+import DeleteBtn from "../operation/DeleteBtn";
+import DoneBtn from "../operation/DoneBtn";
+import EditBtn from "../operation/EditBtn";
 
 const Tasks = ({ tasks, deleteTask, toggleDone, editTask }) => {
   return (
@@ -9,7 +9,7 @@ const Tasks = ({ tasks, deleteTask, toggleDone, editTask }) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className={`collapse collapse-arrow mb-2 w-72 ${
+          className={`collapse collapse-arrow mb-2 w-80 mr-14 ${
             task.done ? "bg-green-700" : "bg-base-300"
           }`}
         >
