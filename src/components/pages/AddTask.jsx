@@ -31,8 +31,8 @@ const AddTask = ({ addTask }) => {
       >
         <input
           type="text"
-          placeholder="Type here"
-          className="input input-bordered input-info w-full"
+          placeholder="Type Your Task"
+          className="input input-bordered input-info md:w-full w-64"
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />

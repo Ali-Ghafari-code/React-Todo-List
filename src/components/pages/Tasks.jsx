@@ -9,7 +9,7 @@ const Tasks = ({ tasks, deleteTask, toggleDone, editTask }) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className={`collapse collapse-arrow mb-2 w-80 mr-14 ${
+          className={`collapse collapse-arrow mb-2 md:w-80 w-72 md:mr-14 mr-10 ${
             task.done ? "bg-green-700" : "bg-base-300"
           }`}
         >
