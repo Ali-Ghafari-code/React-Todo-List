@@ -2,31 +2,34 @@
 import { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
 import AddAlert from "../theme/AddAlert";
+import Category from "../operation/Category";
 
 const AddTask = ({ addTask }) => {
   const [task, setTask] = useState("");
   const [showAlert, setShowAlert] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [selectedCategory, setSelectedCategory] = useState("General");
 
   const handleAddTask = () => {
     if (task.trim()) {
-      addTask(task);
-      setTask("");
-      setShowAlert(true);
-      setTimeout(() => setShowAlert(false), 3000);
+      setIsCategoryOpen(true);
     }
+  };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    addTask(task, category);
+    setTask("");
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 3000);
   };
 
   return (
     <div className="flex flex-col justify-center items-center mb-10">
-      
-      {showAlert && (
-        <AddAlert />
-      )}
-
+      {showAlert && <AddAlert />}
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
+        onSubmit={(e) => e.preventDefault()}
         className="flex justify-center items-center w-96"
       >
         <input
@@ -43,6 +46,12 @@ const AddTask = ({ addTask }) => {
           <IoAddOutline size={30} />
         </button>
       </form>
+      {isCategoryOpen && (
+        <Category
+          onCategorySelect={handleCategorySelect}
+          closeCategory={() => setIsCategoryOpen(false)}
+        />
+      )}
     </div>
   );
 };

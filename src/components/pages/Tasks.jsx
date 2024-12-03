@@ -15,9 +15,9 @@ const Tasks = ({ tasks, deleteTask, toggleDone, editTask }) => {
         >
           <input type="radio" name="my-accordion-2" />
           <div className="collapse-title text-xl font-medium">
-            <p>{task.text} </p>
+            <p className="flex justify-between">{task.text}<span className="text-info">{task.category}</span></p>
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content mt-3 mx-auto">
             <DoneBtn toggleDone={() => toggleDone(task.id)} />
             <EditBtn
               editTask={() => editTask(task.id, prompt("New text:", task.text))}
